@@ -1,0 +1,14 @@
+{% extends "my_app/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+    <div class="container" style="padding-top:20px">
+        <div class="jumbotron">
+            <h2>Welcome to Surecave!</h2>
+            {% if user.is_authenticated %}
+                {{user.email}}
+            {% else %}
+                
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

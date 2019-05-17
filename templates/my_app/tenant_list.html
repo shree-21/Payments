@@ -1,0 +1,28 @@
+{% extends "my_app/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+    <div class="container" style="padding-top:20px">
+        <div class="jumbotron">
+            <div class="w3-container">
+                <h2>Tenants</h2><br>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <select class="form-control" id="select" name="drop">
+                        <option selected="selected">Select a tenant!</option>
+
+                        {% for tenant in tenants %}
+                            {% if tenant.user_choice == 'TENANT' %}
+                                selected="selected"
+                                <option value="{{tenant.email}}">{{tenant.email}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select><br>
+                    <input type="submit" value="Select" class="btn btn-primary">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+                

@@ -1,0 +1,20 @@
+{% extends "my_app/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+    <div class="container" style="padding-top:20px">
+        <div class="jumbotron">
+            <h2>Pay $50.00</h2>
+            <form action="{% url 'my_app:charge' %}" method="post">
+                {% csrf_token %}
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ key }}"
+                    data-description="Monthly Rent"
+                    data-amount="5000"
+                    data-locale="auto">
+                </script>
+
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}
