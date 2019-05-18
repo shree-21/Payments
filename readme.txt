@@ -1,0 +1,56 @@
+---ReadMe.txt---
+
+In order to run the project, follow the below steps.
+
+1) The foremost thing is to install python and Django
+    python 3.7
+    Django 2.2
+
+2) Create a virtual environment using conda command(if you have it in your system.)
+
+        conda create --name django
+
+        other commands: 
+            pip install virtualenv
+            python -m virtualenv name
+
+        (Here name is whatever you want to give the name of your virtual environment)
+
+    To activate the environment, 
+
+        conda activate name
+
+3) Get into the directory where the Project is located, 
+
+    Run the following commands before running the server
+
+    python manage.py migrate
+    python manage.py makemigrations 
+
+    if there are any errors regarding modules,
+
+    install it using the pip command 
+
+    for example, 
+        pip install ModuleName
+
+4) As soon as the server is running, copy the address and check the web app is running locally.
+
+
+
+Project Details & Functionality:
+
+    - This project has two users, Landlord and Tenant.
+    - There is a home page, a Sign up page where both of the users can register to Surecave.
+    - The users are separated by a radio button on the sign up page. 
+    - The login page will redirect them to specific home page according to the type of user.
+    - The authentication is done using allauth.
+    - The landlord will have the notify page, where he/she can choose the tenant, to which they want to send the notification. 
+    - The notification is done using the django-notification module. where few lines of code can help notify one user to the other.
+    - On the other hand, the Tenant, will have a page to see the notifications from the landlord.
+    - The Tenant will have a payment page, where I have used Stripe API. here the tenant will pay the amount and will be redirected to a confirmation page.
+    - After giving the publishable API key to the Stripe, it will give a token and using that token, we can pay the amount. 
+    - For testing purpose, while clicking on the payment tab, use the credit card number "4242 4242 4242 4242", and any expiration date as well as any CVV number.
+    - I have used bootstrap for better navigation bars.
+    - So, overall, the project will have a landlord who can send notifications and the tenant who will get notified and can pay.
+    
